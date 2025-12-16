@@ -1,0 +1,248 @@
+* {
+    color: white;
+}
+
+body {
+    background: url(images/bc\ spi.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+header {
+
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 150px;
+    font-size: 10px;
+}
+
+header h1 {
+    color: red;
+     font-family: "Rubik Wet Paint", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 30px;
+}
+header h1:hover{
+       text-shadow: 0 0 10px red, 0 0 20px red;
+    -webkit-text-stroke: 2px red,2px black;
+}
+
+nav li {
+    list-style: none;
+    margin-right: 50px;
+}
+
+nav a {
+    color: black;
+    font-size: 20px;
+    text-decoration: none;
+    display: flex;
+}
+nav a:hover{
+    color: white;
+}
+
+.order {
+    display: flex;
+}
+
+section h1 {
+    text-transform: uppercase;
+    margin-top: 200px;
+    margin-left: 105px;
+    color: black;
+    text-shadow: 0 0 10px red, 0 0 20px red;
+    -webkit-text-stroke: 2px red;
+     font-family: "Rubik Wet Paint", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+section h1{
+    
+}
+
+section p {
+    margin-left: 105px;
+    color: red;
+}
+
+.spicards {
+    display: flex;
+    position: relative;
+    width: 450px;
+    height: 450px;
+    border-radius: 50%;
+    /* background-color: black; */
+    background: transparent;
+    backdrop-filter: blur(30px);
+    margin-left: 1020px;
+    margin-top: -350px;
+    overflow: hidden;
+    transition: transform 0.4s ease;
+    z-index: 1;
+}
+
+.img1 {
+    position: relative;
+    width: 300px;
+    margin-top: 200px;
+    margin-left: -20px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+    transform: scale(1);
+    cursor: pointer;
+}
+
+.img2 {
+    display: flex;
+    position: relative;
+    margin-top: -80px;
+    margin-left: -70px;
+    transition: transform 0.4s ease;
+    transform: scale(1);
+    object-fit: cover;
+    cursor: pointer;
+    z-index: 2;
+
+}
+
+.img3 {
+    display: flex;
+    position: relative;
+    margin-top: 40px;
+    margin-left: -60px;
+    transition: transform 0.4s ease;
+    transform: scale(1);
+    cursor: pointer;
+    z-index: 10;
+    object-fit: cover;
+
+}
+
+.img4 {
+    /* width: 100px; */
+    position: relative;
+    margin-top: -50px;
+    margin-left: -60px;
+    transition: transform 0.4s ease;
+    transform: scale(1);
+    cursor: pointer;
+    object-fit: cover;
+
+    z-index: 1;
+}
+
+.img5 {
+    margin-top: -90px;
+    margin-left: -430px;
+    transition: transform 0.4s ease;
+    transform: scale(1);
+    cursor: pointer;
+    z-index: 3;
+    object-fit: cover;
+
+}
+
+.img6 {
+    width: 250px;
+    position: absolute;
+    margin-top: -70px;
+    margin-left: 10px;
+    transition: transform 0.4s ease;
+    transform: scale(1);
+    cursor: pointer;
+    z-index: 1;
+    object-fit: cover;
+
+}
+
+.img7 {
+    margin-top: -90px;
+    margin-left: -180px;
+    transition: transform 0.4s ease;
+    transform: scale(1);
+    cursor: pointer;
+    z-index: 1;
+    object-fit: cover;
+
+}
+
+.img2:hover,
+.img3:hover,
+.img4:hover,
+.img5:hover,
+.img6:hover,
+.img7:hover {
+    transform: scale(1.2);
+}
+
+img:hover {
+    z-index: 999;
+}
+
+.but1 {
+    padding: 20px;
+    width: 85px;
+    height: 35px;
+    margin-left: 150px;
+    margin-top: 80px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    background: transparent;
+    color: red;
+    text-shadow: 0 0 5px #ff0000,
+        0 0 5px #ff0000;
+    border: 1px solid red;
+    border-radius: 10px;
+}
+
+.but2 {
+    padding: 20px;
+    width: 85px;
+    height: 35px;
+    margin-left: 450px;
+    margin-top: -40px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    background: transparent;
+    color: red;
+    text-shadow: 0 0 5px #ff0000,
+        0 0 5px #ff0000;
+    border: 1px solid red;
+    border-radius: 10px;
+}
+
+.but1:hover,
+.but2:hover {
+    color: red;
+    border-color: #ff0000;
+    box-shadow: 0 0 15px #ff0000,
+        0 0 30px #ff0000;
+    text-shadow: 0 0 5px #ff0000,
+        0 0 5px #ff0000;
+    transform: scale(1.1);
+    cursor: pointer;
+}
+.but2 a{
+    text-decoration: none;
+    color: red;
+    font-size: 20px;
+}
+.but1 a{
+       text-decoration: none;
+    color: red;
+    font-size: 15px;
+
+}
+.fade-in{
+    width: 50%;
+      font-family: "Changa One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}

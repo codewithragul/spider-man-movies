@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spider-Man Cards</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Butcherman&family=Dancing+Script:wght@700&family=Dosis:wght@200..800&family=Ravi+Prakash&family=Rubik+Beastly&family=Rubik+Doodle+Shadow&family=Rubik+Wet+Paint&family=Sixtyfour&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap"
+    rel="stylesheet">
+
+  <style>
+    body {
+      background-image: url(images/bc\ spi.jpg);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-attachment: fixed;
+      height: 100vh;
+    }
+
+    header {
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-left: 150px;
+      font-size: 10px;
+    }
+
+    h2 {
+      text-align: center;
+      font-family: "Rubik Wet Paint", system-ui;
+      font-weight: 400;
+      font-style: normal;
+      color: red;
+
+    }
+
+    header h1 {
+      color: red;
+      font-family: "Rubik Wet Paint", system-ui;
+      font-weight: 400;
+      font-style: normal;
+      font-size: 30px;
+    }
+
+    header h1:hover {
+      text-shadow: 0 0 10px red, 0 0 20px red;
+      -webkit-text-stroke: 2px red, 2px black;
+    }
+
+
+    nav li {
+      list-style: none;
+      margin-right: 50px;
+    }
+
+    nav a {
+      color: black;
+      font-size: 20px;
+      text-decoration: none;
+      display: flex;
+    }
+
+    nav a:hover {
+      color: white;
+    }
+
+    .order {
+      display: flex;
+    }
+
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      justify-items: center;
+      padding: 20px;
+    }
+
+
+    .card {
+      height: 400px;
+      width: 300px;
+      border: 2px solid red;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #111;
+      transition: transform .1s linear, box-shadow .3s ease;
+      cursor: pointer;
+    }
+
+    .card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      transition: transform .4s;
+    }
+
+    .card:hover img {
+      transform: scale(1.15);
+    }
+
+    .card:hover {
+      box-shadow: 0 0 20px red;
+      transform: translateY(-5px);
+    }
+
+    .card-desc {
+      padding: 8px;
+      font-size: 12px;
+      text-align: center;
+      color: #fff;
+    }
+
+    .stars {
+      text-align: center;
+      margin-top: 5px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #FFD700;
+      text-shadow: 0 0 8px #FFD700, 0 0 15px red;
+      letter-spacing: 3px;
+    }
+
+    .stars:hover {
+      text-shadow: 0 0 12px #FFD700, 0 0 25px red;
+      transform: scale(1.05);
+    }
+
+
+    .card-title {
+      text-align: center;
+      padding: 8px 0;
+      font-size: 14px;
+      font-weight: bold;
+      color: red;
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 10px;
+      }
+
+      .card-container {
+        gap: 15px;
+      }
+
+      .card {
+        width: 140px;
+      }
+
+      .card img {
+        height: 200px;
+      }
+
+      .card-title {
+        font-size: 12px;
+      }
+    }
+
+   
+    @media (max-width: 600px) {
+      .card-container {
+        grid-template-columns: repeat(1, 1fr);
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+  <header>
+    <h1>LANDING</h1>
+    <nav>
+      <li>
+        <ul class="order">
+          <li>
+            <h1><a href="body.html">Home</a></h1>
+          </li>
+          <li>
+            <h1><a href="Trailer.html">Trailer</a></h1>
+          </li>
+          <li>
+            <h1><a href="movies.html">Movies</a></h1>
+          </li>
+          <li>
+            <h1><a href="">About</a></h1>
+          </li>
+        </ul>
+      </li>
+    </nav>
+  </header>
+  <h2>Spider-Man Movies</h2>
+  <div class="card-container" id="movieCards"></div>
+
+  <script>
+    const movies = [
+      {
+        name: "Spider-Man (2002)",
+        image: "https://upload.wikimedia.org/wikipedia/en/2/21/Web_of_Spider-Man_Vol_1_129-1.png",
+        rating: 4.5,
+        desc: "Peter Parker becomes Spider-Man and battles the Green Goblin."
+      },
+      {
+        name: "Spider-Man 2 (2004)",
+        image: "https://upload.wikimedia.org/wikipedia/en/4/4e/Spider-Man_2_poster.jpg",
+        rating: 4.8,
+        desc: "Spider-Man faces Doctor Octopus while struggling with his personal life."
+      },
+      {
+        name: "Spider-Man 3 (2007)",
+        image: "https://upload.wikimedia.org/wikipedia/en/7/7a/Spider-Man_3%2C_International_Poster.jpg",
+        rating: 3.6,
+        desc: "Peter confronts Venom, Sandman, and inner darkness fueled by the symbiote."
+      },
+      {
+        name: "The Amazing Spider-Man (2012)",
+        image: "https://upload.wikimedia.org/wikipedia/en/e/e0/The_Amazing_Spider-Man_%28film%29_poster.jpg",
+        rating: 4.0,
+        desc: "A reboot where Peter uncovers new secrets while battling The Lizard."
+      },
+      {
+        name: "The Amazing Spider-Man 2 (2014)",
+        image: "https://upload.wikimedia.org/wikipedia/en/2/24/The_Amazing_Spider-Man_2_poster.jpg",
+        rating: 3.5,
+        desc: "Electro threatens the city while Peter discovers more about his parents."
+      },
+      {
+        name: "Homecoming (2017)",
+        image: "https://upload.wikimedia.org/wikipedia/en/f/f9/Spider-Man_Homecoming_poster.jpg",
+        rating: 4.7,
+        desc: "Peter teams up with Iron Man to face the Vulture while proving he's ready."
+      },
+      {
+        name: "Far From Home (2019)",
+        image: "https://upload.wikimedia.org/wikipedia/en/b/bd/Spider-Man_Far_From_Home_poster.jpg",
+        rating: 4.6,
+        desc: "Spider-Man takes a school trip to Europe and encounters Mysterio."
+      },
+      {
+        name: "No Way Home (2021)",
+        image: "https://upload.wikimedia.org/wikipedia/en/0/00/Spider-Man_No_Way_Home_poster.jpg",
+        rating: 4.9,
+        desc: "Multiverse opens, bringing together 3 Spider-Men to restore reality!"
+      }
+    ];
+
+    const cardContainer = document.getElementById("movieCards");
+
+    movies.map(movie => {
+      cardContainer.innerHTML += `
+  <div class="card">
+    <img src="${movie.image}" alt="${movie.name}">
+    <div class="card-title">${movie.name}</div>
+    <div class="stars">${"★".repeat(Math.round(movie.rating))}</div>
+    <p class="card-desc">${movie.desc}</p>
+  </div>
+`;
+
+
+    });
+    const cards = document.querySelectorAll(".card");
+
+    cards.forEach(card => {
+      card.addEventListener("mousemove", (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        const rotateX = (y - centerY) / 15;
+        const rotateY = (centerX - x) / 15;
+
+        card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+      });
+
+      card.addEventListener("mouseleave", () => {
+        card.style.transform = `rotateX(0deg) rotateY(0deg) scale(1)`;
+      });
+    });
+
+
+
+
+  </script>
+
+</body>
+
+</html>

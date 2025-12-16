@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Spider-Man</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Butcherman&family=Dancing+Script:wght@700&family=Dosis:wght@200..800&family=Ravi+Prakash&family=Rubik+Beastly&family=Rubik+Doodle+Shadow&family=Rubik+Wet+Paint&family=Sixtyfour&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            background: url(images/bc\ spi.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+
+        header {
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-left: 150px;
+            font-size: 10px;
+        }
+
+        header h1 {
+            color: red;
+            font-family: "Rubik Wet Paint", system-ui;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 30px;
+        }
+
+        header h1:hover {
+            text-shadow: 0 0 10px red, 0 0 20px red;
+            -webkit-text-stroke: 2px red, 2px black;
+        }
+
+        nav li {
+            list-style: none;
+            margin-right: 50px;
+        }
+
+        nav a {
+            color: black;
+            font-size: 20px;
+            text-decoration: none;
+            display: flex;
+        }
+
+        nav a:hover {
+            color: white;
+        }
+
+        .order {
+            display: flex;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 38px;
+            text-transform: uppercase;
+            color: black;
+            text-shadow: 0 0 10px red, 0 0 20px red;
+            -webkit-text-stroke: 2px red;
+            margin-top: 20px;
+            font-family: "Rubik Wet Paint", system-ui;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        h4 {
+            text-align: center;
+            color: white;
+        }
+
+        .content {
+            max-width: 900px;
+            margin: auto;
+            font-size: 18px;
+            line-height: 1.7;
+            text-align: justify;
+            color: #fff;
+            padding: 10px 20px 40px;
+        }
+
+        .content span {
+            color: #ff0000;
+            font-weight: bold;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .about-section {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .about-section img {
+            width: 350px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px red;
+            transition: .4s ease;
+        }
+
+        .about-section img:hover {
+            transform: scale(1.05);
+        }
+
+        .about-text {
+            width: 100%;
+            margin-left: 80px;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                margin-left: 20px;
+            }
+
+            .about-section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .about-section img {
+                width: 250px;
+            }
+        }
+
+        .movies-title {
+            margin-top: 40px;
+        }
+
+        .card-container {
+            max-width: 1100px;
+            margin: 20px auto 60px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        @media (max-width: 900px) {
+            .card-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .card-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .card {
+            background: #111;
+            border-radius: 12px;
+            border: 2px solid red;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform .2s ease, box-shadow .3s ease;
+        }
+
+        .card img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .card-title {
+            text-align: center;
+            padding-top: 8px;
+            font-weight: bold;
+            color: red;
+        }
+
+        .stars {
+            text-align: center;
+            margin-top: 5px;
+            font-size: 18px;
+            color: #FFD700;
+            text-shadow: 0 0 8px #FFD700, 0 0 15px red;
+            letter-spacing: 3px;
+        }
+
+        .card-desc {
+            font-size: 13px;
+            text-align: center;
+            padding: 10px 10px 15px;
+            color: #eee;
+        }
+
+        .card:hover {
+            box-shadow: 0 0 20px red;
+            transform: translateY(-5px);
+        }
+
+        .popup {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.85);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+        }
+
+        .popup-content {
+            width: 700px;
+            max-width: 95vw;
+            background: #111;
+            border: 2px solid red;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            animation: zoom 0.4s ease;
+            color: #fff;
+        }
+
+        @keyframes zoom {
+            from {
+                transform: scale(0.7);
+            }
+
+            to {
+                transform: scale(1);
+            }
+        }
+
+        .popup iframe {
+            width: 100%;
+            height: 350px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+        }
+
+        .close-btn {
+            font-size: 28px;
+            float: right;
+            cursor: pointer;
+            color: white;
+        }
+
+        .close-btn:hover {
+            color: red;
+        }
+
+        .video1 {
+            width: 250px;
+            transform: rotate(-90deg);
+            margin-left: -100px;
+            border-radius: 20px;
+        }
+
+        .note {
+            text-align: center;
+            color: white;
+        }
+
+
+        .watch-btn {
+            width: 50%;
+            margin: 10px auto 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+            padding: 10px 0;
+
+            background: linear-gradient(to right, #010101, #3a3434);
+            border: none;
+            border-radius: 6px;
+
+            font-size: 14px;
+            font-weight: bold;
+            color: red;
+            cursor: pointer;
+            letter-spacing: 1px;
+
+            transition: 0.3s ease-in-out;
+            text-transform: uppercase;
+            box-shadow: 0 0 10px red;
+        }
+
+        .watch-btn:hover {
+            transform: scale(1.08);
+            box-shadow:
+                0 0 10px red,
+                0 0 20px #ff2b2b,
+        }
+
+        .watch-btn:hover::before {
+            content: "🕸";
+            animation: thwip 0.3s linear forwards;
+        }
+
+        @keyframes thwip {
+            from {
+                transform: translateX(-10px) rotate(-30deg);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0) rotate(0deg);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>LANDING</h1>
+        <nav>
+            <li>
+                <ul class="order">
+                    <li>
+                        <h1><a href="body.html">Home</a></h1>
+                    </li>
+                    <li>
+                        <h1><a href="Trailer.html">Trailer</a></h1>
+                    </li>
+                    <li>
+                        <h1><a href="movies.html">Movies</a></h1>
+                    </li>
+                    <li>
+                        <h1><a href="">About</a></h1>
+                    </li>
+                </ul>
+            </li>
+        </nav>
+    </header>
+
+    <h2>Trailer of Spider-Man</h2>
+    <h4>NOTE: Scroll Down And Watch The Trailer</h4>
+
+    <div class="content">
+
+        <div class="about-section fade-in">
+            <video autoplay loop muted playsinline class="video1">
+                <source src="images/spiderman video.mp4" type="video/mp4">
+            </video>
+            <div class="about-text">
+                <p>
+                    <span>Spider-Man</span> is one of the most iconic and beloved superheroes ever created.
+                    He first appeared in 1962 and quickly became famous for being a friendly neighborhood
+                    hero who struggles with real life problems — just like us.
+                </p>
+                <p>
+                    His real identity is <span>Peter Parker</span>, a smart high-school student who gains
+                    spider-like abilities after being bitten by a radioactive spider. With his new powers —
+                    wall-climbing, enhanced strength, super agility, and web-shooters — he fights villains to
+                    protect New York City.
+                </p>
+                <p>
+                    The core message of Spider-Man is based on his uncle’s words:
+                    <span>“With great power comes great responsibility.”</span>
+                </p>
+            </div>
+        </div>
+
+        <h3 class="fade-in" style="margin-top:40px;color:red;text-shadow:0 0 10px red;">Spider-Man Movies Timeline</h3>
+
+        <p class="fade-in"><span>Spider-Man (2002):</span> Peter becomes Spider-Man and faces the Green Goblin.</p>
+        <p class="fade-in"><span>Spider-Man 2 (2004):</span> Peter struggles with hero life while battling Doctor
+            Octopus.</p>
+        <p class="fade-in"><span>Spider-Man 3 (2007):</span> Venom, Sandman and inner darkness test Peter’s heart.</p>
+        <p class="fade-in"><span>The Amazing Spider-Man (2012):</span> A new reboot with The Lizard as the threat.</p>
+        <p class="fade-in"><span>The Amazing Spider-Man 2 (2014):</span> Electro rises and tragedy hits Peter’s life.
+        </p>
+        <p class="fade-in"><span>Homecoming (2017):</span> MCU Spider-Man mentored by Iron Man, facing the Vulture.</p>
+        <p class="fade-in"><span>Far From Home (2019):</span> Mysterio tricks the world on a European school trip.</p>
+        <p class="fade-in"><span>No Way Home (2021):</span> The multiverse opens and three Spider-Men unite.</p>
+
+    </div>
+
+
+    <h2 class="movies-title">Watch The Movies Trailer</h2>
+    <h3 class="note">NOTE: Click The Movie Then Watch The Trailer</h3>
+    <div id="movieCards" class="card-container"></div>
+
+
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span class="close-btn">&times;</span>
+            <iframe id="trailerVideo" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            <h2 id="popupTitle"></h2>
+            <p id="popupDesc"></p>
+        </div>
+    </div>
+
+    <script>
+       
+        const elements = document.querySelectorAll('.fade-in');
+        function reveal() {
+            elements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 50) {
+                    el.classList.add('visible');
+                }
+            });
+        }
+        window.addEventListener('scroll', reveal);
+        reveal();
+
+        const movies = [
+            {
+                name: "Spider-Man (2002)",
+                image: "https://upload.wikimedia.org/wikipedia/en/2/21/Web_of_Spider-Man_Vol_1_129-1.png",
+                rating: 4.5,
+                desc: "Peter Parker becomes Spider-Man and battles the Green Goblin.",
+                trailer: "https://www.youtube.com/embed/-tnxzJ0SSOw"
+            },
+            {
+                name: "Spider-Man 2 (2004)",
+                image: "https://upload.wikimedia.org/wikipedia/en/4/4e/Spider-Man_2_poster.jpg",
+                rating: 4.8,
+                desc: "Spider-Man faces Doctor Octopus while struggling with his personal life.",
+                trailer: "https://www.youtube.com/embed/1s9Yln0YwCw"
+            },
+            {
+                name: "Spider-Man 3 (2007)",
+                image: "https://upload.wikimedia.org/wikipedia/en/7/7a/Spider-Man_3%2C_International_Poster.jpg",
+                rating: 3.6,
+                desc: "Peter confronts Venom, Sandman and inner darkness fueled by the symbiote.",
+                trailer: "https://www.youtube.com/embed/wPosLpgMtTY"
+            },
+            {
+                name: "The Amazing Spider-Man (2012)",
+                image: "https://upload.wikimedia.org/wikipedia/en/e/e0/The_Amazing_Spider-Man_%28film%29_poster.jpg",
+                rating: 4.0,
+                desc: "Peter uncovers new secrets while battling The Lizard.",
+                trailer: "https://www.youtube.com/embed/-tnxzJ0SSOw" // you can change
+            },
+            {
+                name: "The Amazing Spider-Man 2 (2014)",
+                image: "https://upload.wikimedia.org/wikipedia/en/2/24/The_Amazing_Spider-Man_2_poster.jpg",
+                rating: 3.5,
+                desc: "Electro threatens the city while Peter deals with truth and love.",
+                trailer: "https://www.youtube.com/embed/nbp3Ra3Yp74"
+            },
+            {
+                name: "Homecoming (2017)",
+                image: "https://upload.wikimedia.org/wikipedia/en/f/f9/Spider-Man_Homecoming_poster.jpg",
+                rating: 4.7,
+                desc: "Peter works under Tony Stark while facing the Vulture.",
+                trailer: "https://www.youtube.com/embed/n9DwoQ7HWvI"
+            },
+            {
+                name: "Far From Home (2019)",
+                image: "https://upload.wikimedia.org/wikipedia/en/b/bd/Spider-Man_Far_From_Home_poster.jpg",
+                rating: 4.6,
+                desc: "Spider-Man travels Europe and faces Mysterio.",
+                trailer: "https://www.youtube.com/embed/Nt9L1jCKGnE"
+            },
+            {
+                name: "No Way Home (2021)",
+                image: "https://upload.wikimedia.org/wikipedia/en/0/00/Spider-Man_No_Way_Home_poster.jpg",
+                rating: 4.9,
+                desc: "Multiverse brings 3 Spider-Men together to restore reality.",
+                trailer: "https://www.youtube.com/embed/JfVOs4VSpmA"
+            }
+        ];
+
+        const cardContainer = document.getElementById("movieCards");
+
+        movies.forEach((movie, index) => {
+            cardContainer.innerHTML += `
+        <div class="card">
+          <img src="${movie.image}" alt="${movie.name}">
+          <div class="card-title">${movie.name}</div>
+          <div class="stars">${"★".repeat(Math.round(movie.rating))}</div>
+          <p class="card-desc">${movie.desc}</p>
+         <button class="watch-btn" onclick="openPopup(${index})">
+  🕸 Watch Trailer
+</button>
+
+        </div>
+    `;
+        });
+
+
+      
+        const popup = document.getElementById("popup");
+        const trailerVideo = document.getElementById("trailerVideo");
+        const popupTitle = document.getElementById("popupTitle");
+        const popupDesc = document.getElementById("popupDesc");
+        const closeBtn = document.querySelector(".close-btn");
+
+        window.openPopup = function (i) {
+            popup.style.display = "flex";
+            popupTitle.textContent = movies[i].name;
+            popupDesc.textContent = movies[i].desc;
+            trailerVideo.src = movies[i].trailer + "?autoplay=1";
+        }
+
+        closeBtn.onclick = () => {
+            popup.style.display = "none";
+            trailerVideo.src = "";
+        };
+
+        window.onclick = (e) => {
+            if (e.target === popup) {
+                popup.style.display = "none";
+                trailerVideo.src = "";
+            }
+        };
+    </script>
+</body>
+
+</html>
