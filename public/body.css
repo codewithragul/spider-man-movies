@@ -517,9 +517,12 @@ img:hover {
             transform: scale(1.05);
         }
 
-        .about-text {
-            width: 100%;
-            margin-left: 80px;
+        .about-text p {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 250%;
+            margin-left: 100px;
         }
 
         @media (max-width: 768px) {
@@ -567,6 +570,7 @@ img:hover {
             border: 2px solid red;
             overflow: hidden;
             cursor: pointer;
+            height: 450px;
             transition: transform .2s ease, box-shadow .3s ease;
         }
 
@@ -598,6 +602,9 @@ img:hover {
             text-align: center;
             padding: 10px 10px 15px;
             color: #eee;
+        }
+        .card:hover img {
+            transform: scale(1.05);
         }
 
         .card:hover {
@@ -687,16 +694,17 @@ img:hover {
             cursor: pointer;
             letter-spacing: 1px;
 
-            transition: 0.3s ease-in-out;
+            /* transition: 0.3s ease-in-out; */
             text-transform: uppercase;
             box-shadow: 0 0 10px red;
         }
 
         .watch-btn:hover {
-            transform: scale(1.08);
+            width: 60%;
+            /* transform: scale(1.08); */
             box-shadow:
                 0 0 10px red,
-                0 0 20px #ff2b2b,
+                0 0 20px #ff2b2b;
         }
 
         .watch-btn:hover::before {
